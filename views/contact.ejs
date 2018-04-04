@@ -1,0 +1,26 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body{background: skyblue; font-family: Verdana; color: #fff; padding: 30px;}
+        h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+        p{font-size: 16px; text-align: center;}
+    </style>
+</head>
+<body>
+    <% include partials/nav.ejs %>
+    <h1>DATA Simulation started</h1>
+    <p>The HIVE EVA datagenerator...</p>
+    <p><%= qs.dept %></p>
+
+    <form id="contact-form" method="POST" action="/contact">
+<!--         <label for="who">Who do you want to contact?</label>
+        <input type="text" name="who" value="<%= qs.person%>">
+        <label for="department">Which department?</label>
+        <input type="text" name="department" value="<%= qs.dept%>">
+        <label for="email">Your email</label>
+        <input type="email" name="email"/> -->
+        <input type="submit" value="STOP Simulation"/>
+    </form>
+</body>
+</html>
