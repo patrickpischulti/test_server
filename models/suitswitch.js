@@ -31,10 +31,12 @@ module.exports.SuitSwitch = function(){
     });
 }
 
+//Function to return all data from the database
 module.exports.getSuitSwitch = function (callback, limit) {
 	SuitSwitch.find(callback);
 }
 
+//Function to return the most recently created dataset
 module.exports.getSuitSwitchByDate = function (callback, limit) {
 	SuitSwitch.find(callback).sort({'create_date':-1}).limit(1);
 }

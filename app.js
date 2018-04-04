@@ -6,11 +6,14 @@ var interval;
 var interval_switch;
 var urlencodeParser = bodyParser.urlencoded({extended: false});
 
+//Import 
 Simulation = require('./models/simulate');
 SuitSwitch = require('./models/suitswitch');
 
+//Database connector
 mongoose.connect('mongodb://localhost/spacesuit');
 
+//EJS framework for website display
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 
@@ -19,6 +22,7 @@ app.get('/',function(req, res){
     res.render('index');
 });
 
+//On start button, simulation starts
 app.post('/', urlencodeParser, function(req, res){
     console.log("--------------Simulation started--------------")
     var time = Date.now(); 
@@ -27,6 +31,7 @@ app.post('/', urlencodeParser, function(req, res){
     res.render('contact',{qs: ""});
 });
 
+//Returns all simulated data from the database
 app.get('/api/suit', function(req, res){      
         Simulation.getSuitTelemetry(function (err, data) {
             if (err) {
@@ -75,6 +80,7 @@ app.post('/contact', urlencodeParser, function(req, res){
     //console.log(req.body);
     console.log('--------------Simulation stopped--------------');
     clearInterval(interval);
+    clearInterval(interval_switch);
     res.render('contact-success',{data: req.body});
 });
 
