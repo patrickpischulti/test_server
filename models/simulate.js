@@ -177,10 +177,10 @@ function rateSOP(){
 
 //Function to return all data from the database
 module.exports.getSuitTelemetry = function (callback, limit) {
-	SuitData.find(callback);
+	SuitData.find({},{_id:0, __v:0},callback);
 }
 
 //Function to return the most recently created dataset
 module.exports.getSuitTelemetryByDate = function (callback, limit) {
-	SuitData.find(callback).sort({'create_date':-1}).limit(1);
+	SuitData.find({},{_id:0, __v:0},callback).sort({'create_date':-1}).limit(1);
 }
